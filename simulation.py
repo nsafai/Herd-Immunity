@@ -103,7 +103,7 @@ class Simulation(object):
                 # After any Person object is created, whether sick or healthy,
                 # you will need to increment self.next_person_id by 1. Each Person object's
                 # ID has to be unique!
-                self.next_person_id += 1
+            self.next_person_id += 1
 
         return population
 
