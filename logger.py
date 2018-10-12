@@ -1,6 +1,6 @@
 import person
 from string import Template
-# import simulation
+import simulation
 # looked at Wenzel's code for inspiration for this file https://github.com/lowewenzel/CS-1.1-Programming-Fundamentals/blob/master/Herd_Immunity_Project/logger.py
 
 
@@ -40,8 +40,6 @@ class Logger(object):
         log_template = Template('''Virus Simulation Logger \n \tVirus Name: ${name} \nMortality rate: ${mortality}\nBasic Reproductive Rate: ${reproduction}\n\tPopulation: ${pop_size} \nNumber Vaccinated: ${vacc}\n''')
         new_file.write(log_template.substitute(name=virus_name, mortality=mortality_rate, reproduction=basic_repro_num, pop_size=pop_size, vacc=vacc_percentage))
 
-        self.logger.write_metadata(population_size, vacc_percentage,
-                                   virus.name, virus.mortality_rate, virus.basic_repro_num)
         new_file.close()
 
     '''

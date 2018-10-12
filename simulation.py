@@ -96,8 +96,7 @@ class Simulation(object):
                 # Create all the infected people first, and then worry about the rest.
                 # Don't forget to increment infected_count every time you create a
                 # new infected person!
-                new_infected_person = Person(
-                    self.next_person_id, False, self.virus)
+                new_infected_person = person.Person(self.next_person_id, False, virus)
                 population.append(new_infected_person)
                 infected_count += 1
             else:
@@ -108,9 +107,9 @@ class Simulation(object):
                 # created as an unvaccinated person.
                 chance_of_being_vaccinated = random.random()
                 if chance_of_being_vaccinated < self.vacc_percentage:
-                    population.append(Person(self.next_person_id, True))
+                    population.append(person.Person(self.next_person_id, True))
                 else:
-                    population.append(Person(self.next_person_id, False))
+                    population.append(person.Person(self.next_person_id, False))
                 # After any Person object is created, whether sick or healthy,
                 # you will need to increment self.next_person_id by 1. Each Person object's
                 # ID has to be unique!
@@ -155,8 +154,7 @@ class Simulation(object):
             self.logger.log_time_step(time_step_counter, self.population)
             should_continue = self._simulation_should_continue
 
-        print('The simulation has ended after {time_step_counter} turns.'.format(
-            time_step_counter))
+        print('The simulation has ended after {} turns.'.format(time_step_counter))
 
     def generate_random_alive_person(self, infected_person_who_is_interacting):
         random_person = random.choice(self.population)
