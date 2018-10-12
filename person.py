@@ -27,8 +27,8 @@ class Person(object):
         self.infection = infection
 
 
-'''
-did_survive_infection(self):
+    '''
+    did_survive_infection(self):
         - Only called if infection attribute is not None.
         - Takes no inputs.
         - Generates a random number between 0 and 1.
@@ -41,7 +41,7 @@ did_survive_infection(self):
     '''
 
 
-def did_survive_infection(self):
+    def did_survive_infection(self):
         # Finish this method. Follow the instructions in the class documentation
         # You will need to decide what parameters you pass into this method based on how you structure your class.
         # for resolve_infection.  If person dies, set is_alive to False and return False.

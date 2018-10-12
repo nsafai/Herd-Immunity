@@ -1,6 +1,0 @@
-Virus Simulation Logger 
- 	Virus Name: Ebola 
-Mortality rate: 0.7
-Basic Reproductive Rate: 0.25
-	Population: 100000 
-Number Vaccinated: 0.9
