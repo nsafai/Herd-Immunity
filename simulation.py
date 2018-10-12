@@ -2,7 +2,7 @@ import random
 import sys
 random.seed(42)
 import person
-import logger
+from logger import Logger
 import virus
 
 
@@ -49,16 +49,14 @@ class Simulation(object):
         self.basic_repro_num = virus.basic_repro_num
         # Int.  The number of people that have died as a result of the infection during this simulation.  Starts at zero.
         self.total_dead = total_dead
-        self.file_name = "{}_simulation_pop_{}_vp_{}_infected_{}.txt".format(
-            virus.name, population_size, vacc_percentage, initial_infected)
+        self.file_name = "{}_simulation_pop_{}_vp_{}_infected_{}.txt".format(virus.name, population_size, vacc_percentage, initial_infected)
 
         # TODO: Create a Logger object and bind it to self.logger.  You should use this
         # logger object to log all events of any importance during the simulation.  Don't forget
         # to call these logger methods in the corresponding parts of the simulation!
         # Logger object.  The helper object that will be responsible for writing all logs to the simulation.
         self.logger = Logger(self.file_name)
-        self.logger.write_metadata(population_size, vacc_percentage, virus.name, virus.mortality_rate,
-                                   virus.basic_repro_num)
+        self.logger.write_metadata(population_size, vacc_percentage, virus.name, virus.mortality_rate, virus.basic_repro_num)
 
         # This attribute will be used to keep track of all the people that catch
         # the infection during a given time step. We'll store each newly infected
@@ -262,6 +260,6 @@ if __name__ == "__main__":
         initial_infected = int(params[5])
     else:
         initial_infected = 1
-    virus = Virus(virus_name, mortality_rate, basic_repro_num)
+    virus = virus.Virus(virus_name, mortality_rate, basic_repro_num)
     simulation = Simulation(pop_size, vacc_percentage, virus, initial_infected)
     simulation.run()

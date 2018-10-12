@@ -1,6 +1,6 @@
 import person
 from string import Template
-import simulation
+# import simulation
 # looked at Wenzel's code for inspiration for this file https://github.com/lowewenzel/CS-1.1-Programming-Fundamentals/blob/master/Herd_Immunity_Project/logger.py
 
 
