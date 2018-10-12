@@ -1,6 +1,7 @@
 import unittest
 import person
 import virus
+# wrote these tests together with Ali which is why they look identical -- see https://github.com/alishalabi/herd-immunity/blob/master/person_test.py
 
 
 class PersonTest(unittest.TestCase):
