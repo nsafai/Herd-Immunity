@@ -146,9 +146,11 @@ class Logger(object):
         new_file.write("\n------------------ No:" + str(time_step_number) + "---------------------\n")
         new_file.close()
 
-    def log_final_stats(self):
+    def log_final_stats(self, total_dead, total_alive, total_infected, total_interactions_between_vaccinated_and_infected, population_size):
         new_file= open(self.file_name, 'a')
         new_file.write(
             "\n---------------------FINAL STATS---------------------\n")
-        new_file.write("Total Deaths: \nTotal Alive: \n To")
+        new_file.write("Starting Population Size: {}\n".format(population_size))
+        new_file.write("Total Deaths: {}\nTotal Alive: {}\nTotal Infected (at some point): {}\n".format(total_dead, total_infected, total_infected))
+        new_file.write("Total Interactions between someone vaccinated and someone infected: {}\n".format(total_interactions_between_vaccinated_and_infected))
         new_file.close()

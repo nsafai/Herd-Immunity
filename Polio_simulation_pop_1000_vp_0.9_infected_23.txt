@@ -50815,6 +50815,8 @@ Number Vaccinated: 0.9
 ------------------ No:3---------------------
 
 ---------------------FINAL STATS---------------------
-Total Deaths: 
-Total Alive: 
- To
+Starting Population Size: 1000
+Total Deaths: 26
+Total Alive: 307
+Total Infected (at some point): 307
+Total Interactions between someone vaccinated and someone infected: 11917

@@ -51,7 +51,7 @@ class Simulation(object):
         # Int.  The number of people that have died as a result of the infection during this simulation.  Starts at zero.
         self.total_dead = total_dead
         self.total_alive = population_size - total_dead
-        self.total_saved_by_vaccine = 0
+        self.total_interactions_between_vaccinated_and_infected = 0
         self.file_name = "{}_simulation_pop_{}_vp_{}_infected_{}.txt".format(virus.name, population_size, vacc_percentage, initial_infected)
 
         # TODO: Create a Logger object and bind it to self.logger.  You should use this
@@ -153,7 +153,7 @@ class Simulation(object):
         print('total dead: {}'.format(self.total_dead))
         print('total_infected: {}'.format(self.total_infected))
         print('current_infected: {}'.format(self.current_infected))
-        print('total interactions between vaccinated person and infected person {}'.format(self.total_saved_by_vaccine))
+        print('total interactions between vaccinated person and infected person {}'.format(self.total_interactions_between_vaccinated_and_infected))
         print('__________________________________________________')
 
 
@@ -189,7 +189,7 @@ class Simulation(object):
             should_continue = self._simulation_should_continue()
 
         print('The simulation has ended after {} turns.'.format(time_step_counter))
-        self.logger.log_final_stats()
+        self.logger.log_final_stats(self.total_dead, self.total_alive, self.total_infected, self.total_interactions_between_vaccinated_and_infected, self.population_size)
 
     def generate_random_alive_person(self, infected_person):
         random_person = random.choice(self.population)
@@ -239,7 +239,7 @@ class Simulation(object):
 
         if random_person.is_vaccinated is True:  # random_person is vaccinated:
             self.logger.log_interaction(person, random_person, person2_vacc=True)
-            self.total_saved_by_vaccine += 1
+            self.total_interactions_between_vaccinated_and_infected += 1
             return
         elif random_person.infection is not None:  # random_person is already infected
             self.logger.log_interaction(
