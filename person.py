@@ -1,7 +1,8 @@
 import random
-from simulation import *
-from logger import *
-# TODO: Import the virus class
+import simulation
+import logger
+import virus
+
 
 class Person(object):
     '''
@@ -15,12 +16,16 @@ class Person(object):
     '''
 
     def __init__(self, _id, is_vaccinated, infection=None):
-        # TODO:  Finish this method.  Follow the instructions in the class documentation
+        # Finish this method.  Follow the instructions in the class documentation
         # to set the corret values for the following attributes.
-        self._id = _id # Int.  A unique ID assigned to each person.
-        self.is_vaccinated = is_vaccinated #Bool. Determines whether the person object is vaccinated against the disease in the simulation.
-        self.is_alive = True #Bool. All person objects begin alive (value set to true).  Changed to false if person object dies from an infection.
-        self.infection = infection # None or Virus object.  Set to None for people that are not infected. If a person is infected, will instead be set to the virus object the person is infected with.
+        self._id = _id  # Int.  A unique ID assigned to each person.
+        # Bool. Determines whether the person object is vaccinated against the disease in the simulation.
+        self.is_vaccinated = is_vaccinated
+        # Bool. All person objects begin alive (value set to true).  Changed to false if person object dies from an infection.
+        self.is_alive = True
+        # None or Virus object.  Set to None for people that are not infected. If a person is infected, will instead be set to the virus object the person is infected with.
+        self.infection = infection
+
 
 '''
 did_survive_infection(self):
@@ -35,9 +40,10 @@ did_survive_infection(self):
             is_vaccinated attribute is changed to True, and set self.infection to None.
     '''
 
-    def did_survive_infection(self):
-        # TODO:  Finish this method. Follow the instructions in the class documentation
-        # TODO: You will need to decide what parameters you pass into this method based on how you structure your class.
+
+def did_survive_infection(self):
+        # Finish this method. Follow the instructions in the class documentation
+        # You will need to decide what parameters you pass into this method based on how you structure your class.
         # for resolve_infection.  If person dies, set is_alive to False and return False.
         # If person lives, set is_vaccinated = True, infection = None, return True.
         random_number = random.random()
