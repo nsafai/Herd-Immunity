@@ -145,3 +145,10 @@ class Logger(object):
             "\n---------------------FINISH TIME STEP---------------------")
         new_file.write("\n------------------ No:" + str(time_step_number) + "---------------------\n")
         new_file.close()
+
+    def log_final_stats(self):
+        new_file= open(self.file_name, 'a')
+        new_file.write(
+            "\n---------------------FINAL STATS---------------------\n")
+        new_file.write("Total Deaths: \nTotal Alive: \n To")
+        new_file.close()
