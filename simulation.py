@@ -54,10 +54,7 @@ class Simulation(object):
         self.total_interactions_between_vaccinated_and_infected = 0
         self.file_name = "{}_simulation_pop_{}_vp_{}_infected_{}.txt".format(virus.name, population_size, vacc_percentage, initial_infected)
 
-        # TODO: Create a Logger object and bind it to self.logger.  You should use this
-        # logger object to log all events of any importance during the simulation.  Don't forget
-        # to call these logger methods in the corresponding parts of the simulation!
-        # Logger object.  The helper object that will be responsible for writing all logs to the simulation.
+        # TCreate a Logger object and bind it to self.logger to log all events of any importance during the simulation.
         self.logger = Logger(self.file_name)
         self.logger.write_metadata(population_size, vacc_percentage, virus.name, virus.mortality_rate, virus.basic_repro_num)
 
@@ -87,7 +84,7 @@ class Simulation(object):
     '''
 
     def _create_population(self, initial_infected):
-        # Finish this method!  This method should be called when the simulation
+        #  This method should be called when the simulation
         # begins, to create the population that will be used. This method should return
         # an array filled with Person objects that matches the specifications of the
         # simulation (correct number of people in the population, correct percentage of
@@ -96,14 +93,11 @@ class Simulation(object):
         infected_count = 0
         while len(population) != pop_size:
             if infected_count != initial_infected:
-                # Create all the infected people first, and then worry about the rest.
-                # Don't forget to increment infected_count every time you create a
-                # new infected person!
+
                 new_infected_person = person.Person(self.next_person_id, False, virus)
                 population.append(new_infected_person)
                 infected_count += 1
             else:
-                # Now create all the rest of the people.
                 # Every time a new person will be created, generate a random number between
                 # 0 and 1.  If this number is smaller than vacc_percentage, this person
                 # should be created as a vaccinated person. If not, the person should be
@@ -121,7 +115,7 @@ class Simulation(object):
         return population
 
     def _simulation_should_continue(self):
-        # Complete this method!  This method should return True if the simulation
+        # This method should return True if the simulation
         # should continue, or False if it should not.  The simulation should end under
         # any of the following circumstances:
         #     - The entire population is dead.
@@ -163,7 +157,7 @@ class Simulation(object):
             return True
 
     def run(self):
-        # Finish this method.  This method should run the simulation until
+        # This method should run the simulation until
         # everyone in the simulation is dead, or the disease no longer exists in the
         # population. To simplify the logic here, we will use the helper method
         # _simulation_should_continue() to tell us whether or not we should continue
@@ -200,7 +194,7 @@ class Simulation(object):
 
 
     def time_step(self):
-        # Finish this method!  This method should contain all the basic logic
+        #  This method should contain all the basic logic
         # for computing one time step in the simulation.  This includes:
             # - For each infected person in the population:
             #        - Repeat for 100 total interactions:
@@ -230,7 +224,7 @@ class Simulation(object):
 
 
     def interaction(self, person, random_person):
-        # Finish this method! This method should be called any time two living
+        # This method should be called any time two living
         # people are selected for an interaction.  That means that only living people
         # should be passed into this method.  Assert statements are included to make sure
         # that this doesn't happen.
@@ -259,7 +253,7 @@ class Simulation(object):
                 return
 
     def _infect_newly_infected(self):
-        # Finish this method! This method should be called at the end of
+        #  This method should be called at the end of
         # every time step.  This method should iterate through the list stored in
         # self.newly_infected, which should be filled with the IDs of every person
         # created.  Iterate though this list.

@@ -16,8 +16,7 @@ class Person(object):
     '''
 
     def __init__(self, _id, is_vaccinated, infection=None):
-        # Finish this method.  Follow the instructions in the class documentation
-        # to set the corret values for the following attributes.
+
         self._id = _id  # Int.  A unique ID assigned to each person.
         # Bool. Determines whether the person object is vaccinated against the disease in the simulation.
         self.is_vaccinated = is_vaccinated
@@ -42,10 +41,6 @@ class Person(object):
 
 
     def did_survive_infection(self):
-        # Finish this method. Follow the instructions in the class documentation
-        # You will need to decide what parameters you pass into this method based on how you structure your class.
-        # for resolve_infection.  If person dies, set is_alive to False and return False.
-        # If person lives, set is_vaccinated = True, infection = None, return True.
         random_number = random.random()
         if self.infection != None:
             if random_number < self.infection.mortality_rate:
